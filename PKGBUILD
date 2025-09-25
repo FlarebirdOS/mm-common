@@ -1,6 +1,6 @@
 pkgname=mm-common
 pkgver=1.0.7
-pkgrel=1
+pkgrel=2
 pkgdesc="Common build files of the C++ bindings"
 arch=('x86_64')
 url="https://gtkmm.gnome.org/"
@@ -12,6 +12,7 @@ depends=(
 )
 makedepends=(
     'git'
+    'libsigc++'
     'meson'
 )
 _docver=15.1.0
@@ -31,7 +32,6 @@ prepare() {
         sed -ri 's|https?://gcc\.gnu\.org/onlinedocs/libstdc\+\+/latest-doxygen/|'"${_docurl}"'|g' ${f}
     done
 }
-
 
 build() {
     cd ${pkgname}
